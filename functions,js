@@ -1,0 +1,64 @@
+function getComputerChoice(){
+    let number = getRandomIntInclusive(1, 9);
+    if(number <= 3) {
+        return `Rock`;
+    }
+    if(number <= 6) {
+        return `Paper`;
+    }
+    return `Scissors`;
+}
+
+function playRound(playerSelection, computerSelection) {
+    if(playerSelection.equalsIgnoreCase(computerSelection)) {
+        return `It's a tie!`;
+    }
+    if((playerSelection.equalsIgnoreCase(`Rock`) && computerSelection.equalsIgnoreCase(`Scissors`)) ||
+        (playerSelection.equalsIgnoreCase(`Paper`) && computerSelection.equalsIgnoreCase(`Rock`)) ||
+        (playerSelection.equalsIgnoreCase(`Scissors`) && computerSelection.equalsIgnoreCase(`Paper`))) {
+        return `You win! ${playerSelection} beats ${computerSelection}.`;
+    }
+    return `You lose! ${computerSelection} beats ${playerSelection}.`;
+}
+
+function game() {
+    let playerScore = 0;
+    for (i = 0; i < 5; i++) {
+        let playerInput = prompt(`Choose Rock, Paper, or Scissors:`);
+        if(validatePlayerSelection(playerInput)) {
+            console.log(`I don't know what game you're playing, but it's definitely not Rock Paper Scissors. Try again`);
+            i--;
+        }
+        else {
+            let roundResult = playRound(playerInput, getComputerChoice());
+            console.log(roundResult);
+            if(checkIfPlayerWon(roundResult)) {
+                playerScore++;
+            }
+        }
+    }
+    if (playerScore >= 3) {
+        console.log(`YOU'RE THE WINNER ;)`);
+    }
+    else {
+        console.log(`YOU LOST THE GAME :(`);
+    }
+}
+
+function checkIfPlayerWon(roundResult) {
+    return roundResult.contains(`win`);
+}
+
+
+//AUXILIARY FUNCTIONS
+
+function validatePlayerSelection(playerSelection) {
+    return playerSelection.equalsIgnoreCase(`Rock`) || playerSelection.equalsIgnoreCase(`Paper`) ||
+          playerSelection.equalsIgnoreCase(`Scissors`);
+}
+
+function getRandomIntInclusive(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
