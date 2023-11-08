@@ -4,13 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="style.css">
     <script src="scripts.js" defer></script>
 </head>
 <body>
 
-    <div class="button">Rock</button>
-    <div class="button">Paper</button>
-    <div class="button">Scissors</button>
-    <div></div>
+    <header>
+        <h1>ROCK PAPER SCISSORS</h1>
+    </header>
+
+    <main>
+        <div class = "selectionBoard">
+            <h2>CHOOSE YOUR MOVE...</h2>
+            <p id="roundCounter">Round #1</p>
+            <button class="btnSelection" id ="btnRock">Rock</button>
+            <button class="btnSelection" id ="btnPaper">Paper</button>
+            <button class="btnSelection" id ="btnScissors">Scissors</button>
+        </div>
+
+        <div class = "pointsBoard">
+            <h2>SCORE BOARD</h2>
+            <div class="points" id="playerPoints">
+                <p>Player:</p>
+                <p id="playerPointCount"></p>
+            </div>
+            <div class="points" id="computerPoints">
+                <p>Computer:</p>
+                <p id="computerPointCount"></p>
+            </div>
+        </div>
+        
+        <div id="resultBoard"></div>
+    </main>
+    
+    <footer>
+        <p>
+            Copyright 
+            <script>
+                document.write(new Date().getFullYear())
+            </script>
+            amayadf
+        </p>
+    </footer>
+
 </body>
 </html>

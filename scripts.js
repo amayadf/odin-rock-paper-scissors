@@ -1,6 +1,4 @@
 //variable declaration
-let computerChoice;
-let playerChoice;
 let computerScore = 0;
 let playerScore = 0;
 
@@ -17,8 +15,8 @@ function capitalize(str) {
 
 //add function to keep the count updated on the page
 //add function to display results
-function playRound(playerChoice, computerChoice) {
-    computerChoice = getComputerChoice().toLowerCase();
+function playRound(playerChoice) {
+    let computerChoice = getComputerChoice().toLowerCase();
     playerChoice = playerChoice.toLowerCase();
 
     if(computerChoice == playerChoice) {
@@ -38,40 +36,43 @@ function playRound(playerChoice, computerChoice) {
     }
 }
 
-function game() {
-    for(let i = 0; i < 5; i++) {
-        if(playerScore == 3 || computerScore == 3) {
-            break;
-        }
-        playerChoice = prompt("Select rock, paper, or scissors:");
-        console.log(playRound(playerChoice, getComputerChoice()));
-    }
-    if(playerScore > computerScore) {
-        console.log("You won :)")
+function isGameOver(){
+    return computerScore === 3 || playerScore === 3;
+}
+
+function showWinner() {
+    if(computerScore < playerScore) {
+        resultBoard.textContent = 'YOU WON THE GAME!!! :)';
     }
     else {
-        console.log("You lost :(")
+        resultBoard.textContent = 'YOU LOST THE GAME :(';
     }
-    playerScore = 0;
+}
+
+function restartGame() {
     computerScore = 0;
+    playerScore = 0;
+}
+
+function handlePlayerChoice(playerChoice) {
+    if(isGameOver()) {
+        showWinner();
+        restartGame();
+    }
+    else {
+        let roundResult = playRound(playerChoice);
+        resultBoard.textContent = roundResult;
+    }
 }
 
 
-function checkIfPlayerWon(roundResult) {
-    return roundResult.contains(`win`);
-}
+/* EVENT LISTENERS */
 
+let btnScissors = document.getElementById('btnScissors');
+let btnRock = document.getElementById('btnRock');
+let btnPaper = document.getElementById('btnPaper');
+let resultBoard = document.getElementById('resultBoard');
 
-
-/*
-/*     NEW CODE    
-
-const buttons = document.querySelectorAll(".button");
-
-buttons.forEach((button) => {
-    console.log(button.addEventListener("click", playRound(button.textContent), getComputerChoice));
-});
-*/
-
-/* HELPER FUNCTIONS */
-
+btnScissors.addEventListener('click',() => {handlePlayerChoice('scissors')});
+btnRock.addEventListener('click', () => {handlePlayerChoice('rock')});
+btnPaper.addEventListener('click', () => {handlePlayerChoice('paper')});
