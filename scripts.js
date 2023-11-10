@@ -36,11 +36,16 @@ function playRound(playerChoice) {
     ) {
         playerScore += 1;
         let result = generateMessage(playerChoice, computerChoice);
+        computerScoreCount.textContent = computerScore;
+        playerScoreCount.textContent = playerScore;
         return result + " You win the round!";
+
     }
     else {
         computerScore += 1;
         let result = generateMessage(computerChoice, playerChoice);
+        computerScoreCount.textContent = computerScore;
+        playerScoreCount.textContent = playerScore;
         return result + " You lose the round!";
     }
 }
@@ -97,7 +102,7 @@ function restartGame() {
 }
 
 function handlePlayerChoice(playerChoice) {
-    if(isGameOver()) {
+    if(!isGameOver()) {
         showWinner();
         restartGame();
     }
@@ -116,6 +121,8 @@ let btnPaper = document.getElementById('btnPaper');
 let btnLizard = document.getElementById('btnLizard');
 let btnSpock = document.getElementById('btnSpock');
 let resultBoard = document.getElementById('resultBoard');
+let playerScoreCount = document.getElementById('playerPointCount');
+let computerScoreCount = document.getElementById('computerPointCount')
 
 btnScissors.addEventListener('click',() => {handlePlayerChoice('scissors')});
 btnRock.addEventListener('click', () => {handlePlayerChoice('rock')});
