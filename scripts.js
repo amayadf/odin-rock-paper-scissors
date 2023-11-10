@@ -3,7 +3,7 @@ let computerScore = 0;
 let playerScore = 0;
 
 //computer selection
-const choiceArray = ["Rock", "Paper", "Scissors"];
+const choiceArray = ["Rock", "Paper", "Scissors", "Lizard", "Spock"];
 
 function getComputerChoice() {
     return choiceArray[~~(Math.random() * choiceArray.length)];
@@ -25,14 +25,56 @@ function playRound(playerChoice) {
     else if (
         (playerChoice == "rock" && computerChoice == "scissors") ||
         (playerChoice == "paper" && computerChoice == "rock") ||
-        (playerChoice == "scissors" && computerChoice == "paper")
+        (playerChoice == "scissors" && computerChoice == "paper") ||
+        (playerChoice == "rock" && computerChoice == "lizard") ||
+        (playerChoice == "lizard" && computerChoice == "spock") ||
+        (playerChoice == "spock" && computerChoice == "scissors") ||
+        (playerChoice == "scissors" && computerChoice == "lizard") ||
+        (playerChoice == "lizard" && computerChoice == "paper") ||
+        (playerChoice == "paper" && computerChoice == "spock") ||
+        (playerChoice == "spock" && computerChoice == "rock")
     ) {
         playerScore += 1;
-        return `${capitalize(playerChoice)} beats ${computerChoice}. You win the round!`;
+        let result = generateMessage(playerChoice, computerChoice);
+        return result + " You win the round!";
     }
     else {
         computerScore += 1;
-        return `${capitalize(computerChoice)} beats ${playerChoice}. You lose the round!`
+        let result = generateMessage(computerChoice, playerChoice);
+        return result + " You lose the round!";
+    }
+}
+
+function generateMessage(winnerChoice, loserChoice) {
+    if(winnerChoice == "scissors" && loserChoice == "paper") {
+        return "Scissors cut paper.";
+    }
+    else if(winnerChoice == "paper" && loserChoice == "rock") {
+        return "Paper covers rock.";
+    }
+    else if(winnerChoice == "rock" && loserChoice == "lizard") {
+        return "Rock crushes lizard.";
+    }
+    else if(winnerChoice == "lizard" && loserChoice == "spock") {
+        return "Lizard poisons Spock.";
+    }
+    else if(winnerChoice == "spock" && loserChoice == "scissors") {
+        return "Spock smashes scissors.";
+    }
+    else if(winnerChoice == "scissors" && loserChoice == "lizard") {
+        return "Scissors decapitate lizard.";
+    }
+    else if(winnerChoice == "lizard" && loserChoice == "paper") {
+        return "Lizard eats paper.";
+    }
+    else if(winnerChoice == "paper" && loserChoice == "spock") {
+        return "Paper disproves spock.";
+    }
+    else if(winnerChoice == "spock" && loserChoice == "rock") {
+        return "Spock vaporized rock.";
+    }
+    else {
+        return "Rock crushes scissors.";
     }
 }
 
@@ -71,8 +113,12 @@ function handlePlayerChoice(playerChoice) {
 let btnScissors = document.getElementById('btnScissors');
 let btnRock = document.getElementById('btnRock');
 let btnPaper = document.getElementById('btnPaper');
+let btnLizard = document.getElementById('btnLizard');
+let btnSpock = document.getElementById('btnSpock');
 let resultBoard = document.getElementById('resultBoard');
 
 btnScissors.addEventListener('click',() => {handlePlayerChoice('scissors')});
 btnRock.addEventListener('click', () => {handlePlayerChoice('rock')});
 btnPaper.addEventListener('click', () => {handlePlayerChoice('paper')});
+btnLizard.addEventListener('click', () => {handlePlayerChoice('lizard')});
+btnSpock.addEventListener('click', () => {handlePlayerChoice('spock')});
