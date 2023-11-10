@@ -102,7 +102,7 @@ function restartGame() {
 }
 
 function handlePlayerChoice(playerChoice) {
-    if(!isGameOver()) {
+    if(isGameOver()) {
         showWinner();
         restartGame();
     }
