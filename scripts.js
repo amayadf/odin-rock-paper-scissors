@@ -37,13 +37,13 @@ function playRound(playerChoice) {
     ) {
         playerScore += 1;
         result = generateMessage(playerChoice, computerChoice);
-        return result + " You win the round!";
+        return result + " You win the round :)";
 
     }
     else {
         computerScore += 1;
         result = generateMessage(computerChoice, playerChoice);
-        return result + " You lose the round!";
+        return result + " You lose the round :(";
     }
 }
 
@@ -120,7 +120,7 @@ function updateScores() {
 }
 
 function updateRound() {
-    roundCounter.textContent = `ROUND #${roundNumber}`;
+    roundCounter.textContent = `${roundNumber}`;
 }
 
 

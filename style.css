@@ -1,17 +1,24 @@
 body {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: #f0f8ff;
     background-color: #000000;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    font-size: 18px;
 }
+
+
+/*  HEADER  */
 
 header {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
+
+/*  MAIN  */
 
 main {
     display: flex;
@@ -19,18 +26,19 @@ main {
     justify-content: space-around;
     align-items: center;
     flex: 1;
+    padding: 128px;
 }
 
-footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: auto;
+h2 span:nth-of-type(even) {
+    color:#00fbff;
+}
+
+h2 span:nth-of-type(odd) {
+    color:#eaff00;
 }
 
 button {
-
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 18px;
     color:#f0f8ff;
     background-color: #000000;
@@ -38,4 +46,57 @@ button {
     border-radius: 0;
     padding: 8px 32px;
     cursor: pointer;
+    min-width: 150px;
+}
+
+button:hover {
+    border-color: #00fbff;
+    color: #00fbff;
+}
+
+.btnBoard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 32px;
+    padding-bottom: 32px;
+}
+
+.selectionBoard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    row-gap: 32px;
+}
+
+.scoreBoard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 70px;
+}
+
+.score {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+}
+
+#playerScore {
+    color:#00fbff;
+}
+
+#computerScore {
+    color: #eaff00;
+}
+/*  FOOTER  */
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto;
 }

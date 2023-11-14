@@ -10,29 +10,31 @@
 <body>
 
     <header>
-        <h1>ROCK PAPER SCISSORS (LIZARD SPOCK)</h1>
+        <h1>ROCK PAPER SCISSORS <br> (LIZARD SPOCK)</h1>
     </header>
 
     <main>
+        <h2><span>R</span><span>O</span><span>U</span><span>N</span><span>D</span> <span>#</span><span id="roundCounter">1</span></h2>
+
         <div class = "selectionBoard">
-            <h2 id="roundCounter">ROUND #1</h2>
-            <h2>CHOOSE YOUR MOVE...</h2>
-            <button class="btnSelection" id ="btnRock">Rock</button>
-            <button class="btnSelection" id ="btnPaper">Paper</button>
-            <button class="btnSelection" id ="btnScissors">Scissors</button>
-            <button class="btnSelection" id ="btnLizard">Lizard</button>
-            <button class="btnSelection" id ="btnSpock">Spock</button>
+            <h3>CHOOSE YOUR MOVE WISELY...</h3>
+            <div class="btnBoard">
+                <button class="btnSelection" id ="btnRock">ROCK</button>
+                <button class="btnSelection" id ="btnPaper">PAPER</button>
+                <button class="btnSelection" id ="btnScissors">SCISSORS</button>
+                <button class="btnSelection" id ="btnLizard">LIZARD</button>
+                <button class="btnSelection" id ="btnSpock">SPOCK</button>
+            </div>
         </div>
 
         <div class = "scoreBoard">
-            <h2>SCORE BOARD</h2>
-            <div class="score" id="playerScore">
-                <p>Player:</p>
-                <p id="playerScoreCounter"></p>
+            <div class="score " id="playerScore">
+                <p>PLAYER:</p>
+                <p id="playerScoreCounter">0</p>
             </div>
             <div class="score" id="computerScore">
-                <p>Sheldon:</p>
-                <p id="computerScoreCounter"></p>
+                <p>SHELDON:</p>
+                <p id="computerScoreCounter">0</p>
             </div>
         </div>
         
