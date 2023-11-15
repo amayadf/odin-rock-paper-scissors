@@ -8,6 +8,28 @@ body {
     font-size: 18px;
 }
 
+.hidden {
+    display: none;
+}
+
+.btnComputerSelection {
+    border-color: #eaff00;
+}
+
+.btnComputerPlayerSelection {
+    border-bottom: #eaff00;
+    border-right: #eaff00;
+    border-top: #00fbff;
+    border-left: #00fbff;
+}
+
+#restartScreen {
+    position: absolute;
+    background-color: #f0f8ff;
+    color: #000000;
+
+}
+
 
 /*  HEADER  */
 
@@ -49,10 +71,11 @@ button {
     min-width: 150px;
 }
 
-button:hover {
+.btnSelection:hover {
     border-color: #00fbff;
     color: #00fbff;
 }
+
 
 .btnBoard {
     display: flex;
