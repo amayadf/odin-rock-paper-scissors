@@ -14,6 +14,10 @@ function capitalize(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
+function replaceText(str, toReplace, replacement) {
+    return str.replace(toReplace, replacement);
+}
+
 //add function to display results
 function playRound(playerChoice) {
     let computerChoice = getComputerChoice().toLowerCase();
@@ -84,12 +88,14 @@ function isGameOver(){
     return computerScore === 5 || playerScore === 5;
 }
 
-function showWinner() {
+function showWinner(roundResult) {
     if(computerScore < playerScore) {
-        resultBoard.textContent = 'YOU WON THE GAME!!! :)';
+        gameResult.textContent = 'YOU WIN THE GAME!';
+        lastRoundResult.textContent = replaceText(roundResult, ' You win the round :)', ' You are the superior human.');
     }
     else {
-        resultBoard.textContent = 'YOU LOST THE GAME :(';
+        gameResult.textContent = 'YOU LOSE THE GAME!';
+        lastRoundResult.textContent = replaceText(roundResult, ' You lose the round :(', ' Sheldon is master of all things.');
     }
 }
 
@@ -97,31 +103,35 @@ function restartGame() {
     computerScore = 0;
     playerScore = 0;
     roundNumber = 1;
+    roundResult = '';
 
+}
+
+function updateGameScreen(roundResult) {
+    computerScoreCounter.textContent = computerScore;
+    playerScoreCounter.textContent = playerScore;
+    roundCounter.textContent = `${roundNumber}`;
+    resultBoard.textContent = roundResult;
 }
 
 function handlePlayerChoice(playerChoice) {
+    let roundResult = playRound(playerChoice);
+    roundNumber++;
     if(isGameOver()) {
-        showWinner();
-        restartGame();
+        showWinner(roundResult);
+        restartScreen.classList.remove('hidden');
     }
     else {
-        let roundResult = playRound(playerChoice);
-        resultBoard.textContent = roundResult;
-        roundNumber++;
+        updateGameScreen(roundResult)
     }
-    updateScores();
-    updateRound();
 }
 
-function updateScores() {
-    computerScoreCounter.textContent = computerScore;
-    playerScoreCounter.textContent = playerScore;
+function handleRestart() {
+    restartGame();
+    updateGameScreen('');
+    restartScreen.classList.add('hidden');
 }
 
-function updateRound() {
-    roundCounter.textContent = `${roundNumber}`;
-}
 
 
 /* EVENT LISTENERS */
@@ -135,6 +145,11 @@ let resultBoard = document.getElementById('resultBoard');
 let playerScoreCounter = document.getElementById('playerScoreCounter');
 let computerScoreCounter = document.getElementById('computerScoreCounter')
 let roundCounter = document.getElementById('roundCounter');
+let gameScreen = document.getElementById('gameScreen');
+let restartScreen = document.getElementById('restartScreen');
+let gameResult = document.getElementById('gameResult');
+let btnRestart = document.getElementById('restartButton')
+let lastRoundResult = document.getElementById('lastRoundResult');
 
 
 btnScissors.addEventListener('click',() => {handlePlayerChoice('scissors')});
@@ -142,3 +157,4 @@ btnRock.addEventListener('click', () => {handlePlayerChoice('rock')});
 btnPaper.addEventListener('click', () => {handlePlayerChoice('paper')});
 btnLizard.addEventListener('click', () => {handlePlayerChoice('lizard')});
 btnSpock.addEventListener('click', () => {handlePlayerChoice('spock')});
+btnRestart.addEventListener('click', () => {handleRestart()});
