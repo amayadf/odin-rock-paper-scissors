@@ -91,11 +91,13 @@ function isGameOver(){
 function showWinner(roundResult) {
     if(computerScore < playerScore) {
         gameResult.textContent = 'YOU WIN THE GAME!';
+        resultImage.setAttribute('src', './sheldons/sheldon-loses.gif');
         lastRoundResult.textContent = replaceText(roundResult, ' You win the round :)', ' You are the superior human.');
     }
     else {
         gameResult.textContent = 'YOU LOSE THE GAME!';
         lastRoundResult.textContent = replaceText(roundResult, ' You lose the round :(', ' Sheldon is master of all things.');
+        resultImage.setAttribute('src', './sheldons/sheldon-wins.gif');
     }
 }
 
@@ -150,6 +152,7 @@ let restartScreen = document.getElementById('restartScreen');
 let gameResult = document.getElementById('gameResult');
 let btnRestart = document.getElementById('restartButton')
 let lastRoundResult = document.getElementById('lastRoundResult');
+let resultImage = document.querySelector('#resultImage img');
 
 
 btnScissors.addEventListener('click',() => {handlePlayerChoice('scissors')});

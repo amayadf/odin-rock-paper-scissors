@@ -131,10 +131,11 @@ button {
 /*  FOOTER  */
 
 footer {
+    padding-top: 24px;
+    padding-bottom: 24px;
     display: flex;
     justify-content: center;
-    align-items: center;
-    margin-top: auto;
+    align-items: flex-end;
 }
 
 .hidden {
