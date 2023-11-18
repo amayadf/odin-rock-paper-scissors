@@ -10,6 +10,7 @@ function getComputerChoice() {
     return choiceArray[~~(Math.random() * choiceArray.length)];
 }
 
+//helper functions
 function capitalize(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
 }
@@ -18,7 +19,7 @@ function replaceText(str, toReplace, replacement) {
     return str.replace(toReplace, replacement);
 }
 
-//add function to display results
+//game functions
 function playRound(playerChoice) {
     let computerChoice = getComputerChoice().toLowerCase();
     playerChoice = playerChoice.toLowerCase();
@@ -88,19 +89,6 @@ function isGameOver(){
     return computerScore === 5 || playerScore === 5;
 }
 
-function showWinner(roundResult) {
-    if(computerScore < playerScore) {
-        gameResult.textContent = 'YOU WIN THE GAME!';
-        resultImage.setAttribute('src', './sheldons/sheldon-loses.gif');
-        lastRoundResult.textContent = replaceText(roundResult, ' You win the round :)', ' You are the superior human.');
-    }
-    else {
-        gameResult.textContent = 'YOU LOSE THE GAME!';
-        lastRoundResult.textContent = replaceText(roundResult, ' You lose the round :(', ' Sheldon is master of all things.');
-        resultImage.setAttribute('src', './sheldons/sheldon-wins.gif');
-    }
-}
-
 function restartGame() {
     computerScore = 0;
     playerScore = 0;
@@ -109,13 +97,7 @@ function restartGame() {
 
 }
 
-function updateGameScreen(roundResult) {
-    computerScoreCounter.textContent = computerScore;
-    playerScoreCounter.textContent = playerScore;
-    roundCounter.textContent = `${roundNumber}`;
-    resultBoard.textContent = roundResult;
-}
-
+//ui handling functions
 function handlePlayerChoice(playerChoice) {
     let roundResult = playRound(playerChoice);
     roundNumber++;
@@ -134,10 +116,29 @@ function handleRestart() {
     restartScreen.classList.add('hidden');
 }
 
+//ui update functions
+function showWinner(roundResult) {
+    if(computerScore < playerScore) {
+        gameResult.textContent = 'YOU WIN THE GAME!';
+        resultImage.setAttribute('src', './sheldons/sheldon-loses.gif');
+        lastRoundResult.textContent = replaceText(roundResult, ' You win the round :)', ' You are the superior human.');
+    }
+    else {
+        gameResult.textContent = 'YOU LOSE THE GAME!';
+        lastRoundResult.textContent = replaceText(roundResult, ' You lose the round :(', ' Sheldon is master of all things.');
+        resultImage.setAttribute('src', './sheldons/sheldon-wins.gif');
+    }
+}
 
 
-/* EVENT LISTENERS */
+function updateGameScreen(roundResult) {
+    computerScoreCounter.textContent = computerScore;
+    playerScoreCounter.textContent = playerScore;
+    roundCounter.textContent = `${roundNumber}`;
+    resultBoard.textContent = roundResult;
+}
 
+//event listeners
 let btnScissors = document.getElementById('btnScissors');
 let btnRock = document.getElementById('btnRock');
 let btnPaper = document.getElementById('btnPaper');
