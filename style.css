@@ -10,16 +10,6 @@ body {
     font-size: 18px;
 }
 
-.btnComputerSelection {
-    border-color: #eaff00;
-}
-
-.btnComputerPlayerSelection {
-    border-bottom: #eaff00;
-    border-right: #eaff00;
-    border-top: #00fbff;
-    border-left: #00fbff;
-}
 
 .restartScreen {
     z-index: 1;
@@ -35,7 +25,7 @@ body {
 
 }
 
-#restartScreen button {
+.restartScreen button {
     color: #000000;
     background-color: transparent;
     border-color: #000000;
@@ -128,6 +118,10 @@ button {
 #computerScore {
     color: #eaff00;
 }
+
+#resultBoard {
+    height: 20px;
+}
 /*  FOOTER  */
 
 footer {
@@ -140,4 +134,20 @@ footer {
 
 .hidden {
     display: none;
+}
+
+
+.btnComputerSelection {
+    border-color: #eaff00;
+}
+
+.btnPlayerSelection {
+    border-color: #00fbff;
+}
+
+.btnComputerPlayerSelection {
+    border-bottom: #eaff00;
+    border-right: #eaff00;
+    border-top: #00fbff;
+    border-left: #00fbff;
 }
