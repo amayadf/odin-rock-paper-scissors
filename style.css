@@ -10,8 +10,17 @@ body {
     font-size: 18px;
 }
 
+button {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 18px;
+    border-radius: 0;
+    padding: 8px 32px;
+    cursor: pointer;
+    min-width: 150px;
+}
 
-.restartScreen {
+/* restart screen */
+#restartScreen {
     z-index: 1;
     position: absolute;
     background-color: rgb(240, 248, 255, 0.95);
@@ -22,17 +31,19 @@ body {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-
 }
 
-.restartScreen button {
+#restartScreen button {
     color: #000000;
     background-color: transparent;
     border-color: #000000;
 }
 
-/*  HEADER  */
+#restartScreen button:hover {
+    border-width: 3px;
+}
 
+/* header */
 header {
     display: flex;
     justify-content: center;
@@ -40,8 +51,7 @@ header {
     text-align: center;
 }
 
-/*  MAIN  */
-
+/* main */
 main {
     display: flex;
     flex-direction: column;
@@ -59,13 +69,21 @@ h2 span:nth-of-type(odd) {
     color:#eaff00;
 }
 
-button {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 18px;
-    border-radius: 0;
-    padding: 8px 32px;
-    cursor: pointer;
-    min-width: 150px;
+.selectionBoard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    row-gap: 32px;
+}
+
+.btnBoard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 32px;
+    padding-bottom: 32px;
 }
 
 .btnSelection {
@@ -77,24 +95,6 @@ button {
 .btnSelection:hover {
     border-color: #00fbff;
     color: #00fbff;
-}
-
-
-.btnBoard {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-items: center;
-    gap: 32px;
-    padding-bottom: 32px;
-}
-
-.selectionBoard {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    row-gap: 32px;
 }
 
 .scoreBoard {
@@ -123,8 +123,8 @@ button {
     height: 34px;
     font-size: 22px;
 }
-/*  FOOTER  */
 
+/* FOOTER */
 footer {
     padding-top: 24px;
     padding-bottom: 24px;
@@ -133,11 +133,8 @@ footer {
     align-items: flex-end;
 }
 
-.hidden {
-    display: none;
-}
 
-
+/* NON-PERMANENT STYLES*/
 .btnComputerSelection {
     border-width: 3px;
     border-color: #eaff00;
@@ -153,4 +150,8 @@ footer {
     border-right: 3px solid #eaff00;
     border-top: 3px solid #00fbff;
     border-left: 3px solid #00fbff;
+}
+
+.hidden  {
+    display: none !important;
 }

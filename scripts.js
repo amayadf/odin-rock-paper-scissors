@@ -198,9 +198,8 @@ btnBoard.addEventListener('click', (e) => {
     updateButtons();
 });
 
-let btnRestart = document.querySelector('.restartScreen button');
+let btnRestart = document.querySelector('#restartScreen button');
 btnRestart.addEventListener('click', () => {
     resetButtons();
     handleRestart();
 });
-
