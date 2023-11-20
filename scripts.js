@@ -6,8 +6,6 @@ let playerChoice = '';
 let roundNumber = 1;
 let roundResult = ''
 
-
-
 //computer selection
 const choiceArray = ['rock', 'paper', 'scissors', 'lizard', 'spock'];
 
@@ -142,30 +140,25 @@ function updateGameScreen() {
 //button functions
 function resetButtons() {
     if(playerChoice != '' && computerChoice != ''){
-        let btnPlayer = document.getElementById('btn'+capitalize(playerChoice));
-        let btnComputer = document.getElementById('btn'+capitalize(computerChoice));
         if(playerChoice == computerChoice) {
-        btnPlayer.classList.remove('btnComputerPlayerSelection');
+            (document.getElementById('btn'+capitalize(playerChoice))).classList.remove('btnComputerPlayerSelection');
         }
         else {
-            btnPlayer.classList.remove('btnPlayerSelection');
-            btnComputer.classList.remove('btnComputerSelection');
+            (document.getElementById('btn'+capitalize(playerChoice))).classList.remove('btnPlayerSelection');
+            (document.getElementById('btn'+capitalize(computerChoice))).classList.remove('btnComputerSelection');
         }
     }
 }
 
 function updateButtons() {
-    let btnPlayer = document.getElementById('btn'+capitalize(playerChoice));
-    let btnComputer = document.getElementById('btn'+capitalize(computerChoice));
     if(playerChoice == computerChoice) {
-       btnPlayer.classList.add('btnComputerPlayerSelection');
+        (document.getElementById('btn'+capitalize(playerChoice))).classList.add('btnComputerPlayerSelection');
     }
     else {
-        btnPlayer.classList.add('btnPlayerSelection');
-        btnComputer.classList.add('btnComputerSelection');
+        (document.getElementById('btn'+capitalize(playerChoice))).classList.add('btnPlayerSelection');
+        (document.getElementById('btn'+capitalize(computerChoice))).classList.add('btnComputerSelection');
     }
 }
-
 
 //event listeners
 
@@ -182,36 +175,32 @@ let resultImage = document.querySelector('#resultImage img');
 let btnBoard = document.querySelector('.btnBoard');
 btnBoard.addEventListener('click', (e) => {
     let target = e.target;
+    resetButtons();
 
     switch(target.id) {
         case 'btnRock':
-            resetButtons();
             handlePlayerChoice('rock');
-            updateButtons();
             break;
         case 'btnPaper':
-            resetButtons();
             handlePlayerChoice('paper');
-            updateButtons();
             break;
         case 'btnScissors':
-            resetButtons();
             handlePlayerChoice('scissors');
-            updateButtons();
             break;
         case 'btnLizard':
-            resetButtons();
             handlePlayerChoice('lizard');
-            updateButtons();
             break;
         case 'btnSpock':
-            resetButtons();
             handlePlayerChoice('spock');
-            updateButtons();
             break;
     }
+
+    updateButtons();
 });
 
 let btnRestart = document.querySelector('.restartScreen button');
-btnRestart.addEventListener('click', () => {handleRestart()});
+btnRestart.addEventListener('click', () => {
+    resetButtons();
+    handleRestart();
+});
 

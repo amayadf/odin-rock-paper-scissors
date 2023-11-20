@@ -120,7 +120,8 @@ button {
 }
 
 #resultBoard {
-    height: 20px;
+    height: 34px;
+    font-size: 22px;
 }
 /*  FOOTER  */
 
@@ -138,16 +139,18 @@ footer {
 
 
 .btnComputerSelection {
+    border-width: 3px;
     border-color: #eaff00;
 }
 
 .btnPlayerSelection {
+    border-width: 3px;
     border-color: #00fbff;
 }
 
 .btnComputerPlayerSelection {
-    border-bottom: #eaff00;
-    border-right: #eaff00;
-    border-top: #00fbff;
-    border-left: #00fbff;
+    border-bottom:3px solid #eaff00;
+    border-right: 3px solid #eaff00;
+    border-top: 3px solid #00fbff;
+    border-left: 3px solid #00fbff;
 }
