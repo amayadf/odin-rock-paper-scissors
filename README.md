@@ -15,7 +15,9 @@ It consists of a simple user interface that allows you, the player, to embark on
 7. Lizard eats paper
 8. Paper disproves Spock
 9. Spock vaporizes rock
+
 And as it always has...
+
 10. Rock crushes scissors
 
 ## DISCLAIMER
