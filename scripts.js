@@ -137,26 +137,16 @@ function updateGameScreen() {
     resultBoard.textContent = roundResult;
 }
 
-//button functions
-function resetButtons() {
+//button function
+function updateButtons() {
     if(playerChoice != '' && computerChoice != ''){
         if(playerChoice == computerChoice) {
-            (document.getElementById('btn'+capitalize(playerChoice))).classList.remove('btnComputerPlayerSelection');
+            (document.getElementById('btn'+capitalize(playerChoice))).classList.toggle('btnComputerPlayerSelection');
         }
         else {
-            (document.getElementById('btn'+capitalize(playerChoice))).classList.remove('btnPlayerSelection');
-            (document.getElementById('btn'+capitalize(computerChoice))).classList.remove('btnComputerSelection');
+            (document.getElementById('btn'+capitalize(playerChoice))).classList.toggle('btnPlayerSelection');
+            (document.getElementById('btn'+capitalize(computerChoice))).classList.toggle('btnComputerSelection');
         }
-    }
-}
-
-function updateButtons() {
-    if(playerChoice == computerChoice) {
-        (document.getElementById('btn'+capitalize(playerChoice))).classList.add('btnComputerPlayerSelection');
-    }
-    else {
-        (document.getElementById('btn'+capitalize(playerChoice))).classList.add('btnPlayerSelection');
-        (document.getElementById('btn'+capitalize(computerChoice))).classList.add('btnComputerSelection');
     }
 }
 
@@ -175,7 +165,7 @@ let resultImage = document.querySelector('#resultImage img');
 let btnBoard = document.querySelector('.btnBoard');
 btnBoard.addEventListener('click', (e) => {
     let target = e.target;
-    resetButtons();
+    updateButtons();
 
     switch(target.id) {
         case 'btnRock':
@@ -200,6 +190,6 @@ btnBoard.addEventListener('click', (e) => {
 
 let btnRestart = document.querySelector('#restartScreen button');
 btnRestart.addEventListener('click', () => {
-    resetButtons();
+    updateButtons();
     handleRestart();
 });
